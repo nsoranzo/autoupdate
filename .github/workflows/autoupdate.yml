@@ -6,6 +6,7 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions: {}
 jobs:
   build:
     env:
@@ -58,6 +59,7 @@ jobs:
           token: ${{ secrets.PAT }}  # So we can push to it
           path: tools_repo
           fetch-depth: 0  # So we can checkout other branches
+          persist-credentials: true
 
       - uses: actions/setup-python@v7
         with:
